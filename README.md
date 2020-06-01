@@ -1,5 +1,6 @@
-#Ecoleta
-##Seu marketplace de coleta de resíduos
+# Ecoleta
+
+## Seu marketplace de coleta de resíduos
 
 Aplicativo web que ajuda as pessoas a encontrarem pontos de coleta de resíduos
 de forma eficiente.
