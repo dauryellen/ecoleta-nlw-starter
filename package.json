@@ -1,0 +1,27 @@
+{
+  "name": "ecoleta-nlw-starter",
+  "version": "1.0.0",
+  "description": "Aplicativo web que ajuda as pessoas a encontrarem pontos de coleta de resíduos de forma eficiente.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dauryellen/ecoleta-nlw-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dauryellen/ecoleta-nlw-starter/issues"
+  },
+  "homepage": "https://github.com/dauryellen/ecoleta-nlw-starter#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
