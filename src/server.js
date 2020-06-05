@@ -71,8 +71,13 @@ server.post("/savepoint", (req, res) => {
 
 /* página do resultado da busca */
 server.get("/search", (req, res) => {
+  const search = req.query.search;
+
+  //se a pesquisa for vazia
+  if (search == "") return res.render("search-results.html", { total: 0 });
+
   //pegar os dados do banco de dados
-  const queryList = `SELECT * FROM places`;
+  const queryList = `SELECT * FROM places WHERE city LIKE '%${search}%'`;
 
   db.all(queryList, function (err, rows) {
     if (err) return console.log(err);
