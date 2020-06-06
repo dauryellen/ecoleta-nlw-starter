@@ -95,5 +95,20 @@ server.get("/search", (req, res) => {
   });
 });
 
+/* exclusão de ponto */
+server.get("/search/delete/:id", (req, res) => {
+  const queryDelete = `DELETE FROM places WHERE id = ?`;
+  const idDel = req.params.id;
+
+  db.run(queryDelete, idDel, function (err) {
+    if (err) {
+      console.log(err);
+      return res.send("Erro no cadastro.");
+    }
+
+    return res.redirect("/search?search=");
+  });
+});
+
 //ligar o servidor
 server.listen(3000);
