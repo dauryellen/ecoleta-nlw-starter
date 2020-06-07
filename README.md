@@ -1,5 +1,5 @@
 <h2 align="center">
-![Logo do projeto](./public/assets/logo.svg)
+<img src="public/assets/logo.svg.gif" width="auto">
 Ecoleta
 > Seu marketplace de coleta de resíduos
 </h2>
