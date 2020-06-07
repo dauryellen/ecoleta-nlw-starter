@@ -1,7 +1,6 @@
 <h2 align="center">
-<img src="public/assets/logo.svg.gif" width="auto">
-Ecoleta
-> Seu marketplace de coleta de resíduos
+<img src="public/assets/logo.svg" width="auto">
+Ecoleta - Seu marketplace de coleta de resíduos
 </h2>
 
 <p align="center">
