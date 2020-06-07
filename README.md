@@ -1,5 +1,8 @@
-<h2 align="center">
+<h1 align="center">
 <img src="public/assets/logo.svg" width="auto">
+</h1>
+<h2 align="center">
+  Seu marketplace de coleta de resíduos
 </h2>
 
 <p align="center">
