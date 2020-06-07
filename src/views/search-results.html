@@ -45,8 +45,12 @@
               {{ place.address2 }}
             </p>
             <div class="buttons">
-              <a href="/search/update/{{ place.id }}" class="button-edit">Editar</a>
-              <a href="/search/delete/{{ place.id }}" class="button-del">Excluir</a>
+              <form action="/edit">
+                <input type="hidden" name="id" value="{{ place.id }}">
+                <button class="button-edit">Editar</button>
+              </form>
+
+              <a href="/delete/{{ place.id }}" class="button-del">Excluir</a>
             </div>
           </div>
         {% endfor %}

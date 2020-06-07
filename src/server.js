@@ -6,6 +6,7 @@ const db = require("./database/db");
 
 //configurar pasta pública
 server.use(express.static("public"));
+//server.use("/public", express.static("public"));
 
 //habilitar o uso do req.body na nossa aplicação
 server.use(express.urlencoded({ extended: true }));
@@ -69,6 +70,56 @@ server.post("/savepoint", (req, res) => {
   db.run(queryInsert, values, afterInsertData);
 });
 
+/* página do formulário de edição */
+server.get("/edit", (req, res) => {
+  const id = req.query.id;
+  const queryplaceUpdate = `SELECT * FROM places WHERE id='${id}'`;
+
+  db.all(queryplaceUpdate, function (err, row) {
+    if (err) return console.log(err);
+
+    console.log(row);
+    //mostrar a página html com os dados do banco de dados
+    return res.render("edit-point.html", { place: row });
+  });
+});
+
+/* rota para edição de pontos */
+server.post("/editpoint", (req, res) => {
+  //req.body: o corpo do nosso formulário
+  const queryUpdate = `
+  UPDATE places SET 
+    image = ?, 
+    name = ?, 
+    address = ?, 
+    address2 = ?, 
+    state = ?, 
+    city = ?, 
+    items = ? WHERE id = ?;
+  `;
+
+  const valuesUpdate = [
+    req.body.image,
+    req.body.name,
+    req.body.address,
+    req.body.address2,
+    req.body.state,
+    req.body.city,
+    req.body.items,
+    req.body.id,
+  ];
+
+  //console.log(valuesUpdate);
+  db.run(queryUpdate, valuesUpdate, function (err) {
+    if (err) return console.log(err);
+
+    console.log("Registro editado com sucesso.");
+    console.log(this);
+
+    return res.redirect("/search?search=");
+  });
+});
+
 /* página do resultado da busca */
 server.get("/search", (req, res) => {
   const search = req.query.search;
@@ -96,7 +147,7 @@ server.get("/search", (req, res) => {
 });
 
 /* exclusão de ponto */
-server.get("/search/delete/:id", (req, res) => {
+server.get("/delete/:id", (req, res) => {
   const queryDelete = `DELETE FROM places WHERE id = ?`;
   const idDel = req.params.id;
 
